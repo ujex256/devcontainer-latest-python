@@ -1,0 +1,17 @@
+# ライブラリ
+httpx
+matplotlib
+numpy
+opencv-python
+pandas
+pillow
+requests
+tqdm
+
+# 開発用
+black
+flake8
+pytest
+
+# CLIなど
+yt-dlp

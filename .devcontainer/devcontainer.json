@@ -1,0 +1,36 @@
+{
+  "name": "Wonderful Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {
+      "version": "lts"
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "astro-build.astro-vscode",
+        "usernamehw.errorlens",
+        "oven.bun-vscode",
+        "ms-python.python",
+        "ms-python.flake8",
+        "ms-python.black-formatter",
+        "ms-python.isort"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.linting.enabled": true,
+        "python.linting.flake8Enabled": true,
+        "python.formatting.provider": "black",
+        "python.formatting.blackPath": "/usr/local/bin/black",
+        "python.linting.flake8Path": "/usr/local/bin/flake8"
+      }
+    }
+  },
+  "forwardPorts": [8000, 8080, 5000, 3000],
+  "workspaceFolder": "/home/vscode",
+  "remoteUser": "vscode"
+}
