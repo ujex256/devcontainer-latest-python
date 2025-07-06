@@ -23,7 +23,6 @@ RUN apt update && apt install -y \
   zip \
   jq \
   vim \
-  pipx \
   gnupg2 \
   lsb-release \
   && rm -rf /var/lib/apt/lists/*
@@ -61,7 +60,8 @@ WORKDIR /home/$USERNAME/
 # 適当なPythonパッケージをインストール
 RUN pip install --upgrade pip \
   && pip install -r /tmp/docker-build/requirements.txt \
-  && pip cache purge
+  && pip cache purge \
+  && sudo pipx ensurepath --global
 
 # Node.jsとBunをインストール
 RUN curl -fsSL https://bun.sh/install | bash
@@ -77,5 +77,3 @@ SHELL ["/bin/bash", "-c"]
 
 # uv
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
-RUN pipx --version && pipx ensurepath && sudo pipx --global ensurepath
-
