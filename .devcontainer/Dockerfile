@@ -77,9 +77,11 @@ RUN fisher install FabioAntunes/fish-nvm edc/bass \
   && nvm use node
 
 # fishのプラグイン/テーマ
+ARG BOBTHEFISH_CONFIG=/home/$USERNAME/.config/fish/conf.d/bobthefish.fish
 RUN fisher install oh-my-fish/theme-bobthefish jethrokuan/z \
-  && set -g theme_color_scheme terminal-dark \
-  && set -g fish_color_command white
+  && touch $BOBTHEFISH_CONFIG \
+  && echo "set -g theme_color_scheme terminal-dark" > $BOBTHEFISH_CONFIG \
+  && echo "set -g fish_color_command blue" > $BOBTHEFISH_CONFIG
 SHELL ["/bin/bash", "-c"]
 
 # uv
