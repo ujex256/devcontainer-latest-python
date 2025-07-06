@@ -15,4 +15,4 @@ pytest
 
 # CLIなど
 yt-dlp
-pipx
+
