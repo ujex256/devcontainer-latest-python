@@ -75,6 +75,11 @@ RUN curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/function
 RUN fisher install FabioAntunes/fish-nvm edc/bass \
   && nvm install node \
   && nvm use node
+
+# fishのプラグイン/テーマ
+RUN fisher install oh-my-fish/theme-bobthefish jethrokuan/z \
+  && set -g theme_color_scheme terminal-dark \
+  && set -g fish_color_command white
 SHELL ["/bin/bash", "-c"]
 
 # uv
