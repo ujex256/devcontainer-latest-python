@@ -23,9 +23,11 @@ RUN apt update && apt install -y \
   zip \
   jq \
   vim \
+  pipx \
   gnupg2 \
   lsb-release \
-  && rm -rf /var/lib/apt/lists/*
+  && rm -rf /var/lib/apt/lists/* \
+  && pipx ensurepath --global
 ENV LANG=ja_JP.UTF-8
 
 # Github-CLIとFishのインストール(latest)
@@ -73,3 +75,8 @@ RUN fisher install FabioAntunes/fish-nvm edc/bass \
   && nvm install node \
   && nvm use node
 SHELL ["/bin/bash", "-c"]
+
+# uv
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh
+RUN pipx ensurepath
+
