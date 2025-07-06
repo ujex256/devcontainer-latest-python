@@ -9,7 +9,7 @@ ENV PYTHONUTF8=1
 # 須藤など
 RUN apt update && apt install -y \
   sudo \
-  locale \
+  locales \
   locales-all \
   software-properties-common \
   python3-launchpadlib \
