@@ -14,26 +14,25 @@ RUN apt install -y \
   build-essential \
   curl \
   unzip \
-  git \
   vim \
   wget \
   ca-certificates \
   gnupg2 \
-  lsb-release
+  lsb-release \
+  && rm -rf /var/lib/apt/lists/*
 
 # Github-CLIとFishのインストール(latest)
-RUN echo "deb http://download.opensuse.org/repositories/shells:/fish:/release:/4/Debian_12/ /" | tee /etc/apt/sources.list.d/shells:fish:release:4.list
-RUN curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:4/Debian_12/Release.key | gpg --dearmor | tee /etc/apt/trusted.gpg.d/shells_fish_release_4.gpg > /dev/null
-
-RUN mkdir -p -m 755 /etc/apt/keyrings \
+RUN echo "deb http://download.opensuse.org/repositories/shells:/fish:/release:/4/Debian_12/ /" | tee /etc/apt/sources.list.d/shells:fish:release:4.list \
+  && curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:4/Debian_12/Release.key | gpg --dearmor | tee /etc/apt/trusted.gpg.d/shells_fish_release_4.gpg > /dev/null \
+  && mkdir -p -m 755 /etc/apt/keyrings \
 	&& out=$(mktemp) && wget -nv -O$out https://cli.github.com/packages/githubcli-archive-keyring.gpg \
 	&& cat $out | tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
 	&& chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
 	&& mkdir -p -m 755 /etc/apt/sources.list.d \
 	&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
 	&& apt update \
-	&& apt install gh -y
-RUN apt install fish -y
+	&& apt install gh fish -y \
+  && rm -rf /var/lib/apt/lists/*
 
 # ユーザーを作成
 ARG USERNAME=vscode
@@ -52,8 +51,9 @@ USER $USERNAME
 WORKDIR /home/$USERNAME/
 
 # 適当なPythonパッケージをインストール
-RUN pip install --upgrade pip
-RUN pip install -r /tmp/docker-build/requirements.txt
+RUN pip install --upgrade pip \
+  && pip install -r /tmp/docker-build/requirements.txt \
+  && pip cache purge
 
 # Node.jsとBunをインストール(nodejsはまだ)
 RUN curl -fsSL https://bun.sh/install | bash
