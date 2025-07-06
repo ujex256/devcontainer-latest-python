@@ -2,4 +2,4 @@
 最新バージョンのPythonをGithub Codespacesで使いたい
 
 ## Todo
-- Node.jsのインストール
+- ~~Node.jsのインストール~~ かんりょー
