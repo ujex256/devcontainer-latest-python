@@ -26,8 +26,7 @@ RUN apt update && apt install -y \
   pipx \
   gnupg2 \
   lsb-release \
-  && rm -rf /var/lib/apt/lists/* \
-  && pipx ensurepath --global
+  && rm -rf /var/lib/apt/lists/*
 ENV LANG=ja_JP.UTF-8
 
 # Github-CLIとFishのインストール(latest)
@@ -78,5 +77,5 @@ SHELL ["/bin/bash", "-c"]
 
 # uv
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
-RUN pipx ensurepath
+RUN pipx ensurepath && sudo pipx ensurepath --global
 
