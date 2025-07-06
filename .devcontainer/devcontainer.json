@@ -21,11 +21,8 @@
       ],
       "settings": {
         "python.defaultInterpreterPath": "/usr/local/bin/python",
-        "python.linting.enabled": true,
-        "python.linting.flake8Enabled": true,
-        "python.formatting.provider": "black",
-        "python.formatting.blackPath": "/usr/local/bin/black",
-        "python.linting.flake8Path": "/usr/local/bin/flake8"
+        "black-formatter.path": "/home/vscode/.local/bin/black",
+        "flake8.path": "/home/vscode/.local/bin/flake8"
       }
     }
   },
