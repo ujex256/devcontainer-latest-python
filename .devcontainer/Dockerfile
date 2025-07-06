@@ -80,8 +80,8 @@ RUN fisher install FabioAntunes/fish-nvm edc/bass \
 ARG BOBTHEFISH_CONFIG=/home/$USERNAME/.config/fish/conf.d/bobthefish.fish
 RUN fisher install oh-my-fish/theme-bobthefish jethrokuan/z \
   && touch $BOBTHEFISH_CONFIG \
-  && echo "set -g theme_color_scheme terminal-dark" > $BOBTHEFISH_CONFIG \
-  && echo "set -g fish_color_command blue" > $BOBTHEFISH_CONFIG
+  && echo "set -g theme_color_scheme terminal-dark" >> $BOBTHEFISH_CONFIG \
+  && echo "set -g fish_color_command blue" >> $BOBTHEFISH_CONFIG
 SHELL ["/bin/bash", "-c"]
 
 # uv
