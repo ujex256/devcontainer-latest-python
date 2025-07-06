@@ -77,5 +77,5 @@ SHELL ["/bin/bash", "-c"]
 
 # uv
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
-RUN pipx ensurepath && sudo pipx ensurepath --global
+RUN pipx --version && pipx ensurepath && sudo pipx --global ensurepath
 
