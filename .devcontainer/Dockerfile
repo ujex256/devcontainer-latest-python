@@ -25,7 +25,8 @@ RUN apt update && apt install -y \
   vim \
   gnupg2 \
   lsb-release \
-  && rm -rf /var/lib/apt/lists/*
+  && rm -rf /var/lib/apt/lists/* \
+  && pip install pipx
 ENV LANG=ja_JP.UTF-8
 
 # Github-CLIとFishのインストール(latest)
@@ -61,6 +62,7 @@ WORKDIR /home/$USERNAME/
 RUN pip install --upgrade pip \
   && pip install -r /tmp/docker-build/requirements.txt \
   && pip cache purge \
+  && pipx ensurepath \
   && sudo pipx ensurepath --global
 
 # Node.jsとBunをインストール
