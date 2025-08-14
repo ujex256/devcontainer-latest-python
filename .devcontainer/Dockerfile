@@ -24,6 +24,7 @@ RUN apt update && apt install -y \
   jq \
   vim \
   gnupg2 \
+  libgl1-mesa-dev \
   lsb-release \
   && rm -rf /var/lib/apt/lists/* \
   && pip install pipx
