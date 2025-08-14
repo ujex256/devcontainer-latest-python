@@ -21,8 +21,8 @@
       ],
       "settings": {
         "python.defaultInterpreterPath": "/usr/local/bin/python",
-        "black-formatter.path": "/home/vscode/.local/bin/black",
-        "flake8.path": "/home/vscode/.local/bin/flake8"
+        "black-formatter.path": ["/home/vscode/.local/bin/black"],
+        "flake8.path": ["/home/vscode/.local/bin/flake8"]
       }
     }
   },
