@@ -26,6 +26,9 @@
       }
     }
   },
+  "containerEnv": {
+    "GITHUB_TOKEN": ""
+  },
   "forwardPorts": [3000, 4321, 5000, 8000, 8080],
   "workspaceFolder": "/home/vscode",
   "remoteUser": "vscode"

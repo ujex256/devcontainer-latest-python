@@ -5,6 +5,7 @@ COPY requirements.txt /tmp/docker-build/requirements.txt
 
 ENV PYTHONIOENCODING=UTF-8
 ENV PYTHONUTF8=1
+ENV TZ=Asia/Tokyo
 
 # 須藤など
 RUN apt update && apt install -y \
