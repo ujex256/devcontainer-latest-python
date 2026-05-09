@@ -1,4 +1,4 @@
-FROM python:3.14.2-slim-bookworm
+FROM python:3.14.4-slim-bookworm
 
 RUN mkdir /tmp/docker-build
 COPY requirements.txt /tmp/docker-build/requirements.txt
